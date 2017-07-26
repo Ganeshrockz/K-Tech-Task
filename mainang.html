@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  	<title>
+  	   Mobile World | Dashboard
+     </title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<link href='https://fonts.googleapis.com/css?family=ABeeZee' rel='stylesheet'>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+		<link rel="stylesheet" href="style.css" type="text/css">
+		<script src="scriptang.js"></script>
+</head>
+<body ng-app="mobileApp" ng-controller="mobileCtrl">
+<ul class="nav-bar">
+  <li><a href="#" class="active" ng-click="displayAll()">All</a></li>
+  <div class="dropdown">
+  <li class="dropdown-main"><a href="#">Android   <span style="color: grey"><i class="fa fa-caret-down"></i></style></a></li>
+    <div class="dropdown-content">
+      <li><a href="#" ng-click="displayFunc('Samsung')"><span style="font-size: 15px">Samsung</style></a></li>
+        <li><a href="#" ng-click="displayFunc('Lenovo')"><span style="font-size: 15px">Lenovo</style></a></li>
+          <li><a href="#" ng-click="displayFunc('Gionee')"><span style="font-size: 15px">Gionee</style></a></li>
+            <li><a href="#" ng-click="displayFunc('Oppo')"><span style="font-size: 15px">Oppo</style></a></li>
+              <li><a href="#" ng-click="displayFunc('Micromax')"><span style="font-size: 15px">Micromax</style></a></li>
+    </div>
+  </div>
+  <li><a href="#" ng-click="displayFunc('Iphone')">Apple</a></li>
+  <li><a href="#" ng-click="displayFunc('Windows')">Windows</a></li>
+  <br>
+  <hr>
+  <li style="font-size: 17px; position: relative;"><b><center><i class="fa fa-filter"></i>Filters</center></b></li>
+  <li><button class="button btn btn-large form-control" ng-click="displayRam('4')"><b>RAM Greater than 4GB</b></button></li>
+  <br>
+  <li><button class="button btn btn-large form-control" ng-click="displayCost('25000')"><b>Cost Greater than 25000</b></button></li>
+</ul>
+<div style="margin-left: 30%; padding: 20px 15px;">
+<ul class="displaylist" id="phoneList">
+  <div ng-cloak ng-repeat="mobile in phonelist">
+  	<li id="{{mobile.id}}"> 
+  	<div class="phone">
+  	<img src="{{mobile.image}}" alt="{{mobile.name}}" style="width:100%">
+  	<div class="phone-details">
+  	<h2><b>{{mobile.name}}</b></h2>
+  	<h5 id="{{mobile.ram}}"><b>RAM</b>: {{mobile.ram}}</h5>
+  	<h3 id="{{mobile.cost}}"><b>&#8377; {{mobile.cost}}</b></h3>
+  	</div>
+  	</div> 
+  	  	<br>
+  	</li>
+
+  	 </div>
+  	 </ul>
+</div>
+</body>
+
+</html>
